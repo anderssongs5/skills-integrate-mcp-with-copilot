@@ -16,6 +16,7 @@ body {
 }
 
 header {
+  position: relative;
   text-align: center;
   padding: 20px 0;
   margin-bottom: 30px;
@@ -26,6 +27,54 @@ header {
 
 header h1 {
   margin-bottom: 10px;
+}
+
+.account-controls {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.account-button {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  font-size: 21px;
+}
+
+.account-button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+#account-status {
+  max-width: 180px;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+
+.account-menu {
+  position: absolute;
+  z-index: 2;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 120px;
+  padding: 6px;
+  background: white;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.account-menu button {
+  width: 100%;
+  padding: 8px 12px;
 }
 
 main {
@@ -149,6 +198,48 @@ section h3 {
   font-size: 16px;
 }
 
+dialog {
+  width: min(420px, calc(100% - 32px));
+  margin: auto;
+  padding: 24px;
+  border: 1px solid #d0d7de;
+  border-radius: 5px;
+  color: #333;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+}
+
+dialog::backdrop {
+  background: rgba(20, 30, 36, 0.55);
+}
+
+dialog h2 {
+  margin-bottom: 20px;
+  color: #1a237e;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.secondary-button {
+  background: #e8eaed;
+  color: #202124;
+}
+
+.secondary-button:hover {
+  background: #d7dadd;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
 button {
   background-color: #1a237e;
   color: white;
@@ -197,4 +288,27 @@ footer {
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  header {
+    padding: 68px 14px 18px;
+  }
+
+  .account-controls {
+    top: 8px;
+    right: 8px;
+  }
+
+  #account-status {
+    max-width: 132px;
+  }
+
+  section {
+    padding: 16px;
+  }
 }

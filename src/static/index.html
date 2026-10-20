@@ -8,9 +8,39 @@
   </head>
   <body>
     <header>
-      <h1>Mergington High School</h1>
-      <h2>Extracurricular Activities</h2>
+      <div class="header-copy">
+        <h1>Mergington High School</h1>
+        <h2>Extracurricular Activities</h2>
+      </div>
+      <div class="account-controls">
+        <button id="account-button" class="account-button" type="button" aria-label="Teacher account menu" aria-expanded="false" aria-controls="account-menu" title="Teacher account menu">
+          <span aria-hidden="true">&#128100;</span>
+        </button>
+        <span id="account-status" aria-live="polite">Student view</span>
+        <div id="account-menu" class="account-menu hidden">
+          <button id="account-action" type="button">Log in</button>
+        </div>
+      </div>
     </header>
+
+    <dialog id="login-dialog" aria-labelledby="login-title">
+      <form id="login-form">
+        <h2 id="login-title">Teacher login</h2>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" autocomplete="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+        </div>
+        <p id="login-message" class="hidden" role="alert"></p>
+        <div class="dialog-actions">
+          <button id="cancel-login" class="secondary-button" type="button">Cancel</button>
+          <button type="submit">Log in</button>
+        </div>
+      </form>
+    </dialog>
 
     <main>
       <section id="activities-container">
@@ -22,8 +52,9 @@
       </section>
 
       <section id="signup-container">
-        <h3>Sign Up for an Activity</h3>
-        <form id="signup-form">
+        <h3>Register a Student</h3>
+        <p id="teacher-only-note">Teacher login is required to manage registrations. Activity rosters are visible to students.</p>
+        <form id="signup-form" hidden>
           <div class="form-group">
             <label for="email">Student Email:</label>
             <input type="email" id="email" required placeholder="your-email@mergington.edu" />
@@ -35,9 +66,9 @@
               <!-- Activity options will be loaded here -->
             </select>
           </div>
-          <button type="submit">Sign Up</button>
+          <button type="submit">Register Student</button>
         </form>
-        <div id="message" class="hidden"></div>
+        <div id="message" class="hidden" aria-live="polite"></div>
       </section>
     </main>
 
